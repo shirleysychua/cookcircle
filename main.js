@@ -5,8 +5,10 @@ const multer = require("multer");
 const cookieParser = require('cookie-parser')
 const mongoose = require("mongoose");
 
+const mongodb_uri = process.env.MONGODB_URI || "mongodb://localhost:27017/cookcircle_db";
+
 mongoose.connect(
-    "mongodb://localhost:27017/cookcircle_db",
+    mongodb_uri,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true
