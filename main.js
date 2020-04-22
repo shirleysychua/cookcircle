@@ -84,6 +84,6 @@ app.get('/check', function(req, res) {
 
 app.use(errorController.logErrors);
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Use your web browser and open http://localhost:${port}`);
 });
