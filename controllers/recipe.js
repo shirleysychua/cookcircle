@@ -110,18 +110,23 @@ exports.recipePage = async function(req, res) {
     let userid = req.signedCookies.user;
 
     var user = await User.findOne({_id: userid}).exec();
-    console.log(user.myrecipes);
-    var recipe = await Recipe.findOne(ObjectId(recipeid)).exec();
-    console.log(recipe);
+    if (user) {
+        console.log(user.myrecipes);
+        var recipe = await Recipe.findOne(ObjectId(recipeid)).exec();
+        console.log(recipe);
+        
+        let hideAddFlag = user.myrecipes.includes(recipeid)
+            || user.recipebook.includes(recipeid);
     
-    let hideAddFlag = user.myrecipes.includes(recipeid)
-        || user.recipebook.includes(recipeid);
- 
-    if (!hideAddFlag
-        && recipe.price != 0) {
-        res.render("recipe_lock", {recipe: recipe});
+        if (!hideAddFlag
+            && recipe.price != 0) {
+            res.render("recipe_lock", {recipe: recipe});
+        } else {
+            res.render("recipe_detail", {recipe: recipe, hideAddFlag: hideAddFlag});
+        }
+
     } else {
-        res.render("recipe_detail", {recipe: recipe, hideAddFlag: hideAddFlag});
+        res.redirect('/');
     }
 };
 
