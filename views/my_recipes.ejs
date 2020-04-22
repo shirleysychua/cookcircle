@@ -1,0 +1,35 @@
+<br>
+<div class="text-center">
+    <h4><u><a href="/myrecipes">My Recipes</a></u> | <a href="/recipebook">Recipe Book</a></h4>
+</div>
+<br>
+
+<%- include ("partials/facebook-share") %>
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='/addrecipe'">+</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+        
+        <% recipes.forEach(recipe => { %>
+        <div class="col col-lg-8 mt-1 mb-1">
+            <div class="card">
+                <div class="card-body">
+                    <img src="<%= recipe.image %>" height="10%">
+                    <h5 class="card-title text-center d-inline m-4"><a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a></h5>
+                </div>
+                <div class="card-body d-flex justify-content-end">
+                    <div>
+                        <div class="fb-share-button" data-href="http://localhost:3000/recipe/<%= recipe._id %>" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Frecipe%2F<%= recipe._id %>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                        <a href="/recipe/<%= recipe._id %>/edit" class="editbutton btn-primary">Edit</a>
+                    </div>
+               </div>
+              </div>
+        </div>
+        <% }); %>
+    </div>
+</div>

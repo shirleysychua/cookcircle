@@ -1,0 +1,32 @@
+<div class="container">
+    <br>
+    <h2 class="text-center pr-3 pl-3"><b><%= recipe.name %></b></h2>
+    <div class="d-flex justify-content-center">
+        <img src="../<%= recipe.image %>" height="10%">
+    </div>
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <% if (!hideAddFlag) { %>
+                <form action="/addtorecipebook" method="post" id="recipebook">
+                    <input type="hidden" name="recipeid" value="<%= recipe._id %>">
+                </form>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" form="recipebook" value="Submit">ADD TO RECIPE BOOK</button>
+            <% } %>
+        </div>
+    </div>
+
+    <h2 class="pr-3 pl-3"><b>Ingredients</b></h2>
+    <textarea class="col-12 pr-3 pl-3" readonly><%- recipe.ingredients %></textarea>
+    <br><br>
+
+    <h2 class="pr-3 pl-3"><b>Steps</b></h2>
+    <textarea class="col-12 pr-3 pl-3" readonly><%- recipe.steps %></textarea>
+    <br><br>
+    
+    <% if (Object.keys(recipe.video).length) { %>
+        <iframe class="pr-3 pl-3" width="560" height="315" src="https://www.youtube.com/embed/<%= recipe.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% } %>
+
+</div>

@@ -1,0 +1,12 @@
+<%- include ("partials/facebook-login") %>
+
+<div class="container">
+    <br>
+    <h2 class="text-center">Welcome!</h2>
+    <br>
+    <br>
+    <div class="row justify-content-center">
+        <fb:login-button size="xlarge" scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+    </div>
+</div>

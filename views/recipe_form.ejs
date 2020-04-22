@@ -1,0 +1,63 @@
+<div class="container">
+    <form action="/recipe" method="post" id="recipeform" enctype="multipart/form-data">
+
+    <div class="input-group pl-3 pr-3 pt-3 pb-1">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Dish Name</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Dish Name" name="dishName" value="<%= recipe.name %>" required>
+    </div>
+
+    <div class="input-group pl-3 pr-3 pt-1 pb-1">
+        <div class="input-group-prepend">
+        <span class="input-group-text">Dish Image</span>
+        </div>
+        <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputImage" name="inputImage" accept="image/*">
+        <label class="custom-file-label" for="inputImage">Choose file</label>
+        </div>
+    </div>
+
+    <div class="input-group pl-3 pr-3 pt-1 pb-1">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Dish Price</span>
+        </div>
+        <input type="number" min="0" class="form-control" name="dishPrice" placeholder="In CAD, Input 0 for FREE recipe" aria-label="Dish Price" value="<%= recipe.price %>" required>
+    </div>
+
+    <div class="input-group pl-3 pr-3 pt-1 pb-1">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ingredients</span>
+        </div>
+        <textarea class="form-control" aria-label="Ingredients" name="ingredients" required><%= recipe.ingredients %></textarea>
+    </div>
+
+    <div class="input-group pl-3 pr-3 pt-1 pb-1">
+        <div class="input-group-prepend">
+        <span class="input-group-text">Steps</span>
+        </div>
+        <textarea class="form-control" aria-label="Steps" name="steps" required><%= recipe.steps %></textarea>
+    </div>
+
+    <div class="input-group pl-3 pr-3 pt-1 pb-1">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Video Link</span>
+        </div>
+        <div class="input-group-prepend">
+            <span class="input-group-text">https://www.youtube.com/watch?v=</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Video Link" name="videoLink" value="<%= recipe.video %>">
+    </div>
+
+    <input type="hidden" name="isEdit" value="<%= isEdit %>">
+    <input type="hidden" name="recipeId" value="<%= recipe._id %>">
+    
+    </form>
+
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" form="recipeform" value="Submit">SUBMIT</button>
+        </div>
+    </div>
+</div>

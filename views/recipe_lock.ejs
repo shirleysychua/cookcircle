@@ -1,0 +1,19 @@
+<div class="container">
+    <br>
+    <h2 class="text-center pr-3 pl-3"><b><%= recipe.name %></b></h2>
+    <div class="d-flex justify-content-center">
+        <img src="<%= recipe.image %>" height="10%">
+    </div>
+    <h4 class="text-center pr-3 pl-3">$<%= recipe.price %></h4>
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <form action="/payrecipe" method="post" id="recipebook">
+                <input type="hidden" name="recipeid" value="<%= recipe._id %>">
+            </form>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" form="recipebook" value="Submit">PAY</button>
+        </div>
+    </div>
+
+</div>

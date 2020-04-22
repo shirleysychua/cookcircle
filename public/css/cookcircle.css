@@ -1,0 +1,41 @@
+#nav {
+    width: 100%;
+    height: 110px;
+    border-bottom: solid 8px #ee3114;
+    box-shadow: 10px 10px 10px #ccc;
+}
+
+.nav-align {
+    text-align: center;
+    padding: 3px 0;
+}
+
+.bg-primary {
+    background-color: #e2c741 !important;
+}
+
+.button {
+    background-color: #ed4a0f;
+    padding: 0.3vw 3vw;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+}
+
+.editbutton {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.305rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
