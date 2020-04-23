@@ -115,12 +115,14 @@ exports.recipePage = async function(req, res) {
         var recipe = await Recipe.findOne(ObjectId(recipeid)).exec();
         console.log(recipe);
         
+        let enoughBalanceFlag = user.wallet >= recipe.price;
+
         let hideAddFlag = user.myrecipes.includes(recipeid)
             || user.recipebook.includes(recipeid);
     
         if (!hideAddFlag
             && recipe.price != 0) {
-            res.render("recipe_lock", {recipe: recipe});
+            res.render("recipe_lock", {recipe: recipe, enoughBalanceFlag: enoughBalanceFlag});
         } else {
             res.render("recipe_detail", {recipe: recipe, hideAddFlag: hideAddFlag});
         }

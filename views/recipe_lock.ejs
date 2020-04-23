@@ -12,10 +12,21 @@
             <form action="/payrecipe" method="post" id="recipebook">
                 <input type="hidden" name="recipeid" value="<%= recipe._id %>">
             </form>
-            <button type="submit" class="btn btn-primary btn-lg btn-block" form="recipebook" value="Submit">PAY</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" form="recipebook" value="Submit" onclick="return confirmPay();">PAY</button>
         </div>
     </div>
     <br>
     <br>
+
+    <script>
+        function confirmPay() {
+            if ("false" === "<%= enoughBalanceFlag %>") {
+                alert("You have insufficient balance to pay for access to this recipe.");
+                return false;
+            }
+            return confirm("Pay $<%= recipe.price %> to access <%= recipe.name %>?");
+        }
+    </script>    
+    
 
 </div>
