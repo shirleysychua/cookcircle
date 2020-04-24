@@ -6,6 +6,21 @@
         <title>CookCircle</title>
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/cookcircle.css">
+
+        <%
+            let ogImage = "/images/logo.png";
+            let ogTitle = "CookCircle";
+            let ogDescription = "CookCircle";
+            let ogUrl = "/";
+            if (typeof og == 'object' && og) {
+                ogImage = og.image;
+            }
+        %>
+        <meta property="og:url" content="<%= ogUrl %>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="<%= ogTitle %>" />
+        <meta property="og:description" content="<%= ogDescription %>" />
+        <meta property="og:image" content="<%= ogImage  %>" />
     </head>
 
     <body>
