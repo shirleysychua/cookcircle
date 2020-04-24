@@ -14,7 +14,8 @@
             let ogUrl = "/";
             if (typeof og == 'object' && og) {
                 ogImage = og.image;
-                ogDescription = og.description;
+                ogTitle = og.title;
+                ogUrl = og.url;
             }
         %>
         <meta property="og:url" content="<%= ogUrl %>" />

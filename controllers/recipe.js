@@ -126,9 +126,11 @@ exports.recipePage = async function(req, res) {
         }
 
     } else {
+        let url = "https://cookcircle.azurewebsites.net/"
         let og = {
-            image: recipe.image,
-            description: recipe.name
+            url: url + "recipe/" + recipe.id,
+            image: url + recipe.image,
+            title: recipe.name
         }
         res.render('recipe_unauthorized', {recipe: recipe, og: og});
     }
