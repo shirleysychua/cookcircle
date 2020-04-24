@@ -109,11 +109,9 @@ exports.recipePage = async function(req, res) {
     let recipeid = req.params.recipeid;
     let userid = req.signedCookies.user;
 
+    var recipe = await Recipe.findOne(ObjectId(recipeid)).exec();
     var user = await User.findOne({_id: userid}).exec();
     if (user) {
-        console.log(user.myrecipes);
-        var recipe = await Recipe.findOne(ObjectId(recipeid)).exec();
-        console.log(recipe);
         
         let enoughBalanceFlag = user.wallet >= recipe.price;
 
@@ -128,7 +126,7 @@ exports.recipePage = async function(req, res) {
         }
 
     } else {
-        res.redirect('/');
+        res.render('recipe_unauthorized', {recipe: recipe});
     }
 };
 
