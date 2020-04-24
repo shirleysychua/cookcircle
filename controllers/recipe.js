@@ -126,7 +126,11 @@ exports.recipePage = async function(req, res) {
         }
 
     } else {
-        res.render('recipe_unauthorized', {recipe: recipe});
+        let og = {
+            image: recipe.image,
+            description: recipe.name
+        }
+        res.render('recipe_unauthorized', {recipe: recipe, og: og});
     }
 };
 
