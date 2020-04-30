@@ -14,3 +14,13 @@ sudo ./mongod
 node main.js
 ```
 7. Open a web browser and navigate to [http://localhost:3000/](http://localhost:3000/).
+
+## Test Accounts
+Use the following test Facebook accounts to login.
+Email | Password
+--- | ---
+rfevlxxtmh_1587575579@tfbnw.net | Canadore123
+rrlswenrff_1587575575@tfbnw.net | Canadore123
+mdxqjqwhfs_1587575570@tfbnw.net | Canadore123
+ssdlmovdys_1587575577@tfbnw.net | Canadore123
+upswqpaqjh_1587483199@tfbnw.net | Canadore123
